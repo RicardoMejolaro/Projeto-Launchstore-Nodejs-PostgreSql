@@ -1,14 +1,13 @@
 const Category = require('../models/Category');
 const Product = require('../models/Product');
 const { formatPrice } = require('../../lib/utils');
-const { put } = require('../../routes/routes');
 
 module.exports = {
- async create(req, res) {
+  async create(req, res) {
     const results = await Category.all();
     const categories = results.rows;
 
-      return res.render('products/create.njk', { categories });
+    return res.render('products/create.njk', { categories });
 
   },
   async post(req, res) {
@@ -35,31 +34,31 @@ module.exports = {
       status || 1,
     ];
 
-   let results = await Product.create(data);
-   const productId = results.rows[0].id;
+    let results = await Product.create(data);
+    const productId = results.rows[0].id;
 
-   results = await Category.all();
-   const categories = results.rows[0];
-   
-   return res.redirect(`/products/${productId}`);
-    
+    results = await Category.all();
+    const categories = results.rows[0];
+
+    return res.redirect(`/products/${productId}`);
+
   },
   async edit(req, res) {
     const { id } = req.params;
-   let results = await Product.find(id);
-   const product = results.rows[0];
+    let results = await Product.find(id);
+    const product = results.rows[0];
 
-   if(!product) return res.send('Produto não encontrado!');
+    if (!product) return res.send('Produto não encontrado!');
 
-   product.old_price = formatPrice(product.old_price);
-   product.price = formatPrice(product.price);
+    product.old_price = formatPrice(product.old_price);
+    product.price = formatPrice(product.price);
 
-   results = await Category.all();
-   const categories = results.rows;
+    results = await Category.all();
+    const categories = results.rows;
 
 
-   
-   return res.render('products/edit.njk', { product, categories});
+
+    return res.render('products/edit.njk', { product, categories });
   },
   async put(req, res) {
     //Validação todos os campos obrigatórios
@@ -74,7 +73,7 @@ module.exports = {
 
     price = price.replace(/\D/g, "");
 
-    if(old_price != price) {
+    if (old_price != price) {
       const oldProduct = await Product.find(id)
 
       old_price = oldProduct.rows[0].price
@@ -96,6 +95,13 @@ module.exports = {
 
     return res.redirect(`/products/${id}/edit`)
 
+  },
+  async delete(req, res) {
+    const { id } = req.body;
+
+    await Product.delete(id);
+
+    return res.redirect('/products/create');
   }
 }
 
