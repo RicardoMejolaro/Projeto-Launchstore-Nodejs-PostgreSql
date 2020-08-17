@@ -14,3 +14,17 @@ const Mask = {
     }).format(value / 100)
   }
 }
+
+//Lógica confirmação de deletar
+const formDelete = document.querySelector("#form-delete");
+
+if (formDelete) {
+  formDelete.addEventListener("submit", (event) => {
+    const confirmation = confirm("Deseja realmente deletar?");
+    if (!confirmation) {
+      event.preventDefault();
+    } else {
+      alert("Registro deletado com sucesso!");
+    }
+  });
+}
