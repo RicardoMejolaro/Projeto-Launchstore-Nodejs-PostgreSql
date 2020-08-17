@@ -52,6 +52,7 @@ body {
   cursor: pointer;
 
   transition: all 0.2s;
+  outline: none;
   /*botão sempre no final em display grid*/
   align-self: end;
 }
