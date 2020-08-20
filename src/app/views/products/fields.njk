@@ -17,12 +17,12 @@
 </div>
 
 <div class="item">
-  <div>Nome</div>
+  <div>Título</div>
   <div>
     <input 
       type="text" 
       name="name"
-      placeholder="Digite o nome do produto"
+      placeholder="Digite o título do produto"
       value="{{ product.name }}">
   </div>
 </div>
@@ -34,7 +34,24 @@
   </div>
 </div>
 
-{# campo de foto #}
+<div class="item">
+  <div>Imagens</div>
+  <div>
+    <div id="photos-upload">
+    <input 
+      id="photos-input"
+      type="file" 
+      name="photos" 
+      multiple
+      accept="image/*"
+    >
+    <p>Selecione até 6 imagens</p>
+    </div>
+    <div id="photos-preview">
+
+    </div>
+  </div>
+</div>
 
 <div class="item">
   <div>Preço</div>

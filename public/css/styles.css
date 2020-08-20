@@ -43,7 +43,7 @@ body {
   font-size: 1.6rem;
 
   display: block;
-  margin: 0 0 1.6rem 0;
+  margin-bottom: 1.6rem;
   padding: 1.2rem 1.6rem;
   text-align: center;
   
@@ -235,6 +235,46 @@ form .fields span {
 form .fields span input {
   margin-right: 0.4rem;
   margin-top: 0.2rem;
+}
+
+/*PHOTOS UPLOAD*/
+form .item #photos-upload {
+  position: relative;
+
+  display: block;
+  overflow: hidden;
+
+  width: 20rem;
+}
+
+form .item #photos-upload p {
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 0.2rem 0.2rem -0.6rem #333;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-size: 1.3rem;
+
+  width: 100%;
+  text-align: center;
+
+  text-transform: uppercase;
+}
+
+form .item #photos-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  display: block;
+  overflow: hidden;
+
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+
+  cursor: pointer;
 }
 
 /*=============DESKTOP================*/
