@@ -27,6 +27,9 @@ html, body {
 body {
   font-family: 'Roboto', sans-serif;
   background-color:  #f9f9f9;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -83,6 +86,7 @@ header, footer {
 
 footer {
   font-size: 1.6rem;
+  margin-top: auto;
 }
 
 header div.container {
@@ -328,7 +332,77 @@ form .item #photos-preview img {
   opacity: 1;
 }
 
+/*PRODUCT VIEW*/
+.product-sigle {
+  max-width: 90%;
+  background-color: var(--white-color);
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 2.4rem;
+  padding: 3.2rem 2.4rem;
+  margin: 3.2rem auto;
 
+  box-shadow: 0.2rem 0.2rem 0.2rem 0 rgba(63, 63, 63, 0.9);
+
+  border: 1px solid #efefef;
+  border-radius: 0.8rem;
+}
+
+.product-sigle .gallery {
+  width: 100%;
+}
+
+.product-sigle .gallery img {
+  width: 100%;
+}
+
+.product-sigle .info {
+  display: grid;
+  grid-template-rows: auto 4rem 2fr 1fr;
+}
+
+.product-sigle .info h1 {
+  font-size: 3.2rem;
+  line-height: 4.2rem;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.product-sigle .info .published {
+  color: #888;
+  font-size: 1.2rem;
+  line-height: 2.2rem;
+  letter-spacing: 0.4px;
+}
+
+.product-sigle .price-buy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.8rem;
+  border-top: 1px solid #eee;
+}
+
+.product-sigle .price-buy .price {
+  font-size: 2.2rem;
+  color: #333;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.product-sigle .price-buy .price .old-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin-left: 0.8rem;
+}
+
+.product-sigle .price-buy .buy button {
+  font-size: 1.4rem;
+  letter-spacing: 0.4px;
+}
 
 /*=============DESKTOP================*/
 @media(min-width: 700px) {
@@ -365,5 +439,8 @@ form .item #photos-preview img {
     justify-content: space-between;
   }
 
-
+  /*PRODUCT VIEW*/
+  .product-sigle {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
