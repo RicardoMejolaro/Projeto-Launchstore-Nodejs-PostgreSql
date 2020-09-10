@@ -3,11 +3,10 @@ const routes = express.Router();
 const multer = require('../app/middlewares/multer');
 
 const ProductController = require('../app/controllers/ProductController');
+const HomeController = require('../app/controllers/HomeController');
 
 
-routes.get('/', (req, res) => {
-  return res.render('layout.njk');
-});
+routes.get('/', HomeController.index);
 
 //Alias
 routes.get('/ads/create', (req, res) => {

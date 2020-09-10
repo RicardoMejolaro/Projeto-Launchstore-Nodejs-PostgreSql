@@ -9,6 +9,22 @@
   font-size: 60%; /* controle das medidas rem */
 }
 
+/* personalizar a barra em geral, aqui estou definindo 20px de altura para a barra horizontal */
+::-webkit-scrollbar {
+  width: 20px;
+}
+   
+  /* aqui é para personalizar o fundo da barra, neste caso estou colocando um fundo branco*/
+::-webkit-scrollbar-track {
+  background:#555;
+}
+   
+  /* aqui é a alça da barra, que demonstra a altura que você está na página
+  estou colocando uma cor preta*/
+ ::-webkit-scrollbar-thumb {
+   background: #111;
+ }
+
 * {
   margin: 0;
   padding: 0;
@@ -494,6 +510,53 @@ form .item #photos-preview img {
   letter-spacing: 0.4px;
 }
 
+/*HOME SHOP*/
+.shop h2 {
+  margin: 32px 0;
+  font-size: 20px;
+}
+
+.shop .items {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 3rem;
+}
+
+.shop .product {
+  display: grid;
+}
+
+.shop .product .image {
+  padding-top: 50%;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 3px solid #efefef;
+}
+
+.shop .product .old-price p {
+  padding: 0;
+  margin: 4px 0;
+
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.shop .items h4 {
+  font-size: 18px;
+  margin: 12px 0 20px 0;
+  font-weight: 500;
+  color: #999;
+}
+
+.shop .items p {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-top: 8px;
+}
+
 /*=============DESKTOP================*/
 @media(min-width: 700px) {
 
@@ -534,5 +597,10 @@ form .item #photos-preview img {
     display: grid;
     grid-template-rows: none;
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /*HOME SHOP*/
+  .shop .items {
+    grid-template-columns: repeat(3, 1fr); 
   }
 }
