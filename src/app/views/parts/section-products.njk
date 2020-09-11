@@ -1,12 +1,10 @@
 {% macro products(name, classes, products) %}
 
 <section class="shop {{classes}}">
-
+  {% if name %}
+    <h2>{{name}}</h2>
+  {% endif %}
   <div class="items">
-
-    {% if name %}
-      <h2>{{name}}</h2>
-    {% endif %}
 
     {% for product in products %}
       <div class="product">
