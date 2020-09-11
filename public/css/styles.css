@@ -16,7 +16,7 @@
    
   /* aqui é para personalizar o fundo da barra, neste caso estou colocando um fundo branco*/
 ::-webkit-scrollbar-track {
-  background:#555;
+  background:#999;
 }
    
   /* aqui é a alça da barra, que demonstra a altura que você está na página
@@ -24,6 +24,10 @@
  ::-webkit-scrollbar-thumb {
    background: #111;
  }
+
+ ::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
 
 * {
   margin: 0;
