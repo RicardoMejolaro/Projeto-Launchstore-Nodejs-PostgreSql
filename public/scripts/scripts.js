@@ -45,6 +45,19 @@ const Mask = {
 
     return value;
   },
+  cep(value) {
+    /*Limpando o campo */
+    value = value.replace(/\D/g, "");
+
+    /*Limitando máximo 14 dígitos */
+    if(value.length > 8) 
+      value = value.slice(0, -1)
+
+      //111111-222
+      value = value.replace(/(\d{5})(\d)/, "$1-$2")
+
+      return value;
+  }
 }
 
 const PhotosUpload = {
