@@ -16,7 +16,9 @@
       type="email" 
       name="email"
       placeholder="Ex.: seuemail@seuemail.com"
-      value="{{ user.email }}">
+      value="{{ user.email }}"
+      onblur="Validate.apply(this, 'isEmail')"  
+    >
   </div>
 </div>
 

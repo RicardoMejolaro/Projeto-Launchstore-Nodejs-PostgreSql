@@ -617,6 +617,15 @@ form .item #photos-preview img {
   max-width: 60%;
 }
 
+/*VALIDATE ERRORS EMAIL*/
+.input .error {
+  width: 100px;
+  background-color: #e74c3c;
+  padding: 4px;
+  border-radius: 4px;
+  color: #FFF;
+}
+
 /*=============DESKTOP================*/
 @media(min-width: 700px) {
 
