@@ -14,12 +14,20 @@ module.exports = {
     }
 
     //Checando se usúario já estã cadastrado
-    const { email, cpf, cnpj } = req.body;
+    let { email, cpf_cnpj, password, passwordRepeat } = req.body;
+
+    cpf_cnpj = cpf_cnpj.replace(/\D/g, "");
+
     const user = await User.findOne({ 
       where: {email},
       or: {cpf_cnpj}
     });
 
+    if (user) return res.send('Usuário já cadastrado!');
+
     //Checando se a senha e repetição são iguais
+    if (password !== passwordRepeat) return res.send('As senhas não são iguais!');
+
+    return res.send('Senhas ok!')
   }
 };
