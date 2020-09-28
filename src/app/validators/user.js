@@ -6,7 +6,10 @@ async function post(req, res, next) {
 
   for (const key of keys) {
     if (req.body[key] == "")
-      return res.send("Por gentileza preencha todos os campos!")
+      return res.render('user/register', { 
+        user: req.body,
+        error: "Por gentileza, preencha todos os campos!"
+      });
   }
 
   //Checando se usúario já estã cadastrado
@@ -19,10 +22,16 @@ async function post(req, res, next) {
     or: {cpf_cnpj}
   });
 
-  if (user) return res.send('Usuário já cadastrado!');
+  if (user) return res.render('user/register', { 
+    user: req.body,
+    error: "Usuário já cadastrado!"
+  });
 
   //Checando se a senha e repetição são iguais
-  if (password !== passwordRepeat) return res.send('As senhas não são iguais!');
+  if (password !== passwordRepeat) return res.render('user/register', { 
+    user: req.body,
+    error: "As senha não são iguais!"
+  });
 
   next();
 }
