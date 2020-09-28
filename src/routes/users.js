@@ -4,6 +4,8 @@ const routes = express.Router();
 const SessionController = require('../app/controllers/SessionController');
 const UserController = require('../app/controllers/UserController');
 
+const Validator = require('../app/validators/user')
+
 /*=================USERS============= */
 // //Login and Logout
 // routes.get('/login', SessionController.loginForm);
@@ -19,7 +21,7 @@ const UserController = require('../app/controllers/UserController');
 // //User Register *UserController
 routes.get('/register', UserController.registerForm);
 // routes.get('/', UserController.show);
-routes.post('/register', UserController.post);
+routes.post('/register', Validator.post, UserController.post);
 // routes.put('/', UserController.update);
 // routes.delete('/', UserController.delete);
 // 
