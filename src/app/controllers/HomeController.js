@@ -7,8 +7,10 @@ module.exports = {
       let results = await Product.all()
       const products = results.rows;
   
-      if(!products) return res.send("Produtos não encontrados!");
-  
+      if(!products) return res.render('home/index', { 
+        error: "Produtos não encontrados!"
+      });
+      
       async function getImage(productId) {
         let results = await Product.files(productId);
         const files = results.rows.map(file => `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`);

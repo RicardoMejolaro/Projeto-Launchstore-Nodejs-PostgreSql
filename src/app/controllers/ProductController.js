@@ -17,7 +17,9 @@ module.exports = {
 
     for (const key of keys) {
       if (req.body[key] == "")
-        return res.send("Por gentileza preencha todos os campos!")
+        return res.render('products/create', { 
+        error: "Por gentileza, preencha todos os campos!"
+      });
     }
 
    let { category_id, user_id, name, description, old_price, price, quantity, status } = req.body;
@@ -50,7 +52,9 @@ module.exports = {
     let result = await Product.find(req.params.id);
     const product = result.rows[0];
 
-    if(!product) return res.send('Produto não encontrado!');
+    if(!product) return res.render('products/show', { 
+      error: "Produto não encontrado!"
+    });
 
     const { month, day, hour, minutes } = date(product.updated_at);
 
@@ -76,7 +80,9 @@ module.exports = {
     let results = await Product.find(id);
     const product = results.rows[0];
 
-    if (!product) return res.send('Produto não encontrado!');
+    if (!product) return res.render('products/edit', { 
+      error: "Produto não encontrado!!"
+    });
 
     product.old_price = formatPrice(product.old_price);
     product.price = formatPrice(product.price);
@@ -101,7 +107,9 @@ module.exports = {
 
     for (const key of keys) {
       if (req.body[key] == "" && key != "removed_files")
-        return res.send("Por gentileza preencha todos os campos!");
+        return res.render('products/edit', { 
+          error: "Por gentileza, preencha todos os campos!"
+        });
     }
 
     let { category_id, user_id, name, description, old_price, price, quantity, status, id } = req.body;
